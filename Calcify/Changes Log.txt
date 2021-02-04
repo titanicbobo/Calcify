@@ -1,0 +1,84 @@
+2019-09-20 (v0.3.920)
+	Added "power by n" to scientific calculation
+	Beautified the UI with =====================
+	Changed credits id number from 4 to 3
+	Renamed input() to int_input()
+	Renamed bsc_input() to bsc()
+	Added help text to basic and scienific calculation modes
+
+2019-10-12 (v0.4.1012)
+	Removed conv_to_ch function
+	Renamed conv_leng_out to conv_length
+	Added Complex Numbers to Calculate menu with 2 complex number calculation 		functionality (function complex()), (class Komplex)
+	Added Mass conversion from and to t, kg, dag, g (function conv_mass())
+	Full language.h text integration
+	Multi language support
+	Removed math.h
+	Added cmath
+	Added ClearScreen() function
+	Replaced some if, else statements with switch, case
+	Moved version numbers to language.h (v0.4.1012)
+	Program got the "beta" status
+	Publisher is now "macintoshsoftware" 
+	Replaced "Copyright" with © symbol
+	Added Exit feature to the main menu
+	Added auto exit after the calculations finish
+	Added breakline() function replacing the for loop for "=" lines
+
+2019-10-13 (v0.5.1013)
+	Added PI as a global const float
+	Added Unit Calculation
+	Added Physical, Electrical Calculation modes with 19 Units to calculate
+	Added tech_menu() function
+	Added tech_phy(), tech_elec() functions
+
+2019-10-14 (v0.5.1014)
+	Replaced 1., 2., etc with [1], [2] for the menus
+
+2019-10-16 (v0.5.1016)
+	Tried to separate class Komplex to a header and another cpp file
+	Got error "14 duplicate symbols for architecture x86_64"
+	Moved everything back to main.cpp
+	Bugfixes
+	Added anti exit loop
+	Added "Press any key dialogue"
+	Added program wide error recognition (function error())
+	Only exit with main menu 4
+
+2019-10-20 (v0.5.1020)
+	Error "14 duplicate symbols for architecture x86_64" solved with removing 		everything except main.cpp from Build Phases > Compile Sources
+	Successfully created complex.cpp, complex.h, convert.cpp, convert.hpp, 			modules.cpp, modules.hpp
+	Moved error(), header(), breakline(), int_input() to modules.hpp,cpp
+	Moved converter functions to convert.hpp,cpp
+	Moved complex function and class to complex.h,cpp
+	Added sin, cos, tan, arcsin, arcos, arctan to Scientific Calc.
+	Fixed an issue in Scient. Calc.
+	Merged basic calculations in Scient. Calc.
+
+2019-12-08 (v0.5.1208)
+	Fixed design issues at converter
+	Merged cpp files to hpp files
+
+2019-12-11 (v0.5.1211)
+	Bugfixes at converter
+	Added config file check at start
+	Added config.txt with firstTime boot initialisation
+	Changed developer from macintoshsoftware to K.Tech
+
+2021-02-04 (v0.6.0204)
+	Translated program from C++ to C
+	Removed the complex number functionality inlcuding complex.h
+	Removed stat.h
+	Changed develper company to from K.Tech to Sevem Studios
+	Changed most floats to double
+	Added "cls" to header function
+	Changed formatting of main.c, language_en.h and language_hu.h to ISO 8859-2
+	Multiple language support
+	Added translation option in config.h
+	Added Hungarian translation
+	Physics calculations now show formula next to the result
+	Added new main menu item: Library
+	The Library offers equations, definitions and formulas to the user
+	Added phyisics equations from calculator
+	Library translation for Hungarian required
+	scanf skip issue at acceleration calculation
