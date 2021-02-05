@@ -27,7 +27,7 @@ char menuMain_calc[] = "\n [1] Alap\n [2] Tudományos\n [3] Mértékegység számolás
 char menuMain_conv[] = "\n [1] Hossz\n [2] Tömeg\n";
 char menuTech[] = "\n [1] Fizikai\n [2] Villamossági\n";
 char menuTechPhy[] = "\n [1] Sebesség [v]\n [2] Gyorsulás [a]\n [3] Energia [P]\n [4] Erõ [F]\n [5] Lendület [p]\n [6] Munka [W]\n [7] Mozgási energia [E kin]\n [8] Helyzeti energia [E pot]\n [9] Nyomás [p]\n";
-char menuTechElec[] = "\n [1] Feszültség [U]\n [2] Elektromos áram [I]\n [3] Elektromos ellenállás [R]\n [4] Elektromos impedancia [Z]\n [5] Kapacitív ellenállás [XC]\n [6] Induktív ellenállás [XL]\n [7] Mágneses fluxus [B]\n [8] Elektromos töltés [Q]\n [9] Elektromos mezõ [E]\n [10] Kapacitás [C]\n";
+char menuTechElec[] = "\n [1] Feszültség [U]\n [2] Elektromos áram [I]\n [3] Elektromos ellenállás [R]\n [4] Mágneses fluxus [B]\n [5] Elektromos töltés [Q]\n [6] Elektromos mezõ [E]\n";
 char menuLib[] = "\n [1] Fizikai egyenletek\n [2] Villamossági egyenletek\n";
  
 //Promtps

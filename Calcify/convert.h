@@ -24,51 +24,39 @@ void conv_calc(int type)
 {
     int conv_inputConvFrom=0;
     int conv_inputConvTo=0;
-    printf("\n From: \n");
 
     switch(type)
     {
-        case 1: printf("\n [1] km\n [2] m\n [3] dm\n [4] cm\n [5] mm\n");
-                conv_inputConvFrom = int_input();
+        case 1: conv_inputConvFrom = int_input();
 
                 switch(conv_inputConvFrom)
                 {
-                    case 1: header(headerConv);
-                            printf("%s\n [1] m\n [2] dm\n [3] cm\n [4] mm\n",inputConvTo);
+                    case 1: header(headerConv, inputConvTo, textConvertLenFromKM);
                             break;
-                    case 2: header(headerConv);
-                            printf("%s\n [1] km\n [2] dm\n [3] cm\n [4] mm\n", inputConvTo);
+                    case 2: header(headerConv, inputConvTo, textConvertLenFromM);
                             break;
-                    case 3: header(headerConv);
-                            printf("%s\n [1] km\n [2] m\n [3] cm\n [4] mm\n", inputConvTo);
+                    case 3: header(headerConv, inputConvTo, textConvertLenFromDM);
                             break;
-                    case 4: header(headerConv);
-                            printf("%s\n [1] km\n [2] m\n [3] dm\n [4] mm\n", inputConvTo);
+                    case 4: header(headerConv, inputConvTo, textConvertLenFromCM);
                             break;
-                    case 5: header(headerConv);
-                            printf("%s\n [1] km\n [2] m\n [3] dm\n [4] cm\n", inputConvTo);
+                    case 5: header(headerConv, inputConvTo, textConvertLenFromMM);
                             break;
                     default: error(conv_inputConvFrom);
                             break;
                 }
                 break;
 
-        case 2: printf("\n [1] t\n [2] kg\n [3] dag\n [4] g\n");
-                conv_inputConvFrom = int_input();
+        case 2: conv_inputConvFrom = int_input();
 
                 switch(conv_inputConvFrom)
                 {
-                    case 1: header(headerConv);
-                            printf("%s\n [1] kg\n [2] dag\n [3] g\n", inputConvTo);
+                    case 1: header(headerConv, inputConvTo, textConvertMassFromT);
                             break;
-                    case 2: header(headerConv);
-                            printf("%s\n [1] t\n [2] dag\n [3] g\n", inputConvTo);
+                    case 2: header(headerConv, inputConvTo, textConvertMassFromKG);
                             break;
-                    case 3: header(headerConv);
-                            printf("%s\n [1] t\n [2] kg\n [3] g\n", inputConvTo);
+                    case 3: header(headerConv, inputConvTo, textConvertMassFromDKG);
                             break;
-                    case 4: header(headerConv);
-                            printf("%s\n [1] t\n [2] kg\n [3] dag\n", inputConvTo);
+                    case 4: header(headerConv, inputConvTo, textConvertMassFromG);
                             break;
                     default: error(conv_inputConvFrom);
                             break;

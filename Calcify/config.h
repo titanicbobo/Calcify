@@ -1,9 +1,16 @@
 #ifndef config_h
 #define config_h
 	
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> 
+#include <Windows.h>
+#include <math.h>
+
 const int ver_major = 0;
 const int ver_minor = 6;
-const char ver_build[] = "0204";
+const char ver_build[] = "0205";
 const char status[] = "beta";
 
 double PI = 3.1415;
