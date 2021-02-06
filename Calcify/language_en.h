@@ -20,8 +20,8 @@ char headerLib[] = "Library";
 char infoCalc[] = "To calculate, enter a number first. \n Then enter the operation on the list. \n After that, enter the second number.";
 
 //Menus
-char menuCalcScience[] = " [1] Addition\n [2] Subtraction\n [3] Multiplication\n [4] Division\n [R] Square Root\n [2] Power by two\n [n] Power by n\n [s] Sin\n [c] Cos\n [t] Tan\n [S] arcsin\n [C] arcos\n [T] arctan";
-char menuCalcBasic[] = " [1] Addition\n [2] Subtraction\n [3] Multiplication\n [4] Division";
+char menuCalcScience[] = " [+] Addition\n [-] Subtraction\n [*] Multiplication\n [/] Division\n [R] Square Root\n [2] Power by two\n [n] Power by n\n [s] Sin\n [c] Cos\n [t] Tan\n [S] arcsin\n [C] arcos\n [T] arctan";
+char menuCalcBasic[] = " [+] Addition\n [-] Subtraction\n [*] Multiplication\n [/] Division";
 char menuMain[] = "[1] Calculator\n [2] Converter\n [3] Library\n [4] Credits\n [5] Exit";
 char menuMain_calc[] = "[1] Basic\n [2] Scientific\n [3] Unit Calculation";
 char menuMain_conv[] = "[1] Length\n [2] Mass";
