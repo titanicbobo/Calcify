@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 void conv_calc(int);
-float conv_input(void);
+double conv_input(void);
 void conv_length(int, int);
 void conv_mass(int, int);
 
@@ -31,15 +31,15 @@ void conv_calc(int type)
 
                 switch(conv_inputConvFrom)
                 {
-                    case 1: header(headerConv, inputConvTo, textConvertLenFromKM);
+                    case 1: headerAdv(headerConv, inputConvTo, textConvertLenFromKM);
                             break;
-                    case 2: header(headerConv, inputConvTo, textConvertLenFromM);
+                    case 2: headerAdv(headerConv, inputConvTo, textConvertLenFromM);
                             break;
-                    case 3: header(headerConv, inputConvTo, textConvertLenFromDM);
+                    case 3: headerAdv(headerConv, inputConvTo, textConvertLenFromDM);
                             break;
-                    case 4: header(headerConv, inputConvTo, textConvertLenFromCM);
+                    case 4: headerAdv(headerConv, inputConvTo, textConvertLenFromCM);
                             break;
-                    case 5: header(headerConv, inputConvTo, textConvertLenFromMM);
+                    case 5: headerAdv(headerConv, inputConvTo, textConvertLenFromMM);
                             break;
                     default: error(conv_inputConvFrom);
                             break;
@@ -50,13 +50,13 @@ void conv_calc(int type)
 
                 switch(conv_inputConvFrom)
                 {
-                    case 1: header(headerConv, inputConvTo, textConvertMassFromT);
+                    case 1: headerAdv(headerConv, inputConvTo, textConvertMassFromT);
                             break;
-                    case 2: header(headerConv, inputConvTo, textConvertMassFromKG);
+                    case 2: headerAdv(headerConv, inputConvTo, textConvertMassFromKG);
                             break;
-                    case 3: header(headerConv, inputConvTo, textConvertMassFromDKG);
+                    case 3: headerAdv(headerConv, inputConvTo, textConvertMassFromDKG);
                             break;
-                    case 4: header(headerConv, inputConvTo, textConvertMassFromG);
+                    case 4: headerAdv(headerConv, inputConvTo, textConvertMassFromG);
                             break;
                     default: error(conv_inputConvFrom);
                             break;
@@ -77,12 +77,16 @@ void conv_calc(int type)
     }
 }
 
-float conv_input(void)
+double conv_input()
 {
-    float n;
+    double n;
+    char n1[1024];
+
     printf("%s", inputNum);
-    scanf("%f", &n);
-    fflush(stdin);
+    
+    fgetc(stdin);
+    fgets(n1, 1024, stdin);
+    n = atof(n1);
 
     return n;
 }
@@ -95,33 +99,13 @@ void conv_length(int inputConvFrom, int inputConvTo)
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f km > %f m\n", num, num * 1000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "km", "m", 'l', "mul", 1000);
             break;
-        case 2: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f km > %f dm\n", num, num * 10000);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "km", "dm", 'l', "mul", 10000);
             break;
-        case 3: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f km > %f cm\n", num, num * 100000);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "km", "cm", 'l', "mul", 100000);
             break;
-        case 4: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f km > %f mm\n", num, num * 1000000);
-            breakline();
-            printf("\n");
+        case 4: convCalc(num, "km", "mm", 'l', "mul", 1000000);
             break;
         default: error(inputConvTo);
             break;
@@ -132,33 +116,13 @@ void conv_length(int inputConvFrom, int inputConvTo)
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f m > %f km\n", num, num / 1000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "m", "km", 'l', "div", 1000);
             break;
-        case 2: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f m > %f dm\n", num, num * 10);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "m", "dm", 'l', "mul", 10);
             break;
-        case 3: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f m > %f cm\n", num, num * 100);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "m", "cm", 'l', "mul", 100);
             break;
-        case 4: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f m > %f mm\n", num, num * 1000);
-            breakline();
-            printf("\n");
+        case 4: convCalc(num, "m", "mm", 'l', "mul", 1000);
             break;
         default: error(inputConvTo);
             break;
@@ -169,33 +133,13 @@ void conv_length(int inputConvFrom, int inputConvTo)
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f dm > %f km\n", num, num / 10000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "dm", "km", 'l', "div", 10000);
             break;
-        case 2: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f dm > %f m\n", num, num / 10);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "dm", "m", 'l', "div", 10);
             break;
-        case 3: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f dm > %f cm\n", num, num * 10);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "dm", "cm", 'l', "mul", 10);
             break;
-        case 4: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f dm > %f mm\n", num, num * 100);
-            breakline();
-            printf("\n");
+        case 4: convCalc(num, "dm", "mm", 'l', "mul", 100);
             break;
         default: error(inputConvTo);
             break;
@@ -206,33 +150,13 @@ void conv_length(int inputConvFrom, int inputConvTo)
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f cm > %f km\n", num, num / 100000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "cm", "km", 'l', "div", 100000);
             break;
-        case 2: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f cm > %f m\n", num, num / 100);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "cm", "m", 'l', "div", 100);
             break;
-        case 3: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f cm > %f dm\n", num, num / 10);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "cm", "dm", 'l', "div", 10);
             break;
-        case 4: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f cm > %f mm\n", num, num * 10);
-            breakline();
-            printf("\n");
+        case 4: convCalc(num, "cm", "mm", 'l', "mul", 10);
             break;
         default: error(inputConvTo);
             break;
@@ -243,33 +167,13 @@ void conv_length(int inputConvFrom, int inputConvTo)
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f mm > %f km\n", num, num / 1000000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "mm", "km", 'l', "div", 1000000);
             break;
-        case 2: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f mm > %f m\n", num, num / 1000);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "mm", "m", 'l', "div", 1000);
             break;
-        case 3: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f mm > %f dm\n", num, num / 100);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "mm", "dm", 'l', "div", 100);
             break;
-        case 4: header(headerLength);
-            printf("\n");
-            breakline();
-            printf("\n %f mm > %f cm\n", num, num / 10);
-            breakline();
-            printf("\n");
+        case 4: convCalc(num, "mm", "cm", 'l', "div", 10);
             break;
         default: error(inputConvTo);
             break;
@@ -285,26 +189,11 @@ void conv_mass(int inputConvFrom, int inputConvTo) //mass
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerMass); //inputConvTo kg
-            printf("\n");
-            breakline();
-            printf("\n %ft > %f kg\n", num, num * 1000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "t", "kg", 'm', "mul", 1000);
             break;
-        case 2: header(headerMass); // inputConvTo dag
-            printf("\n");
-            breakline();
-            printf("\n %ft > %f dag\n", num, num * 100000);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "t", "dkg", 'm', "mul", 100000);
             break;
-        case 3: header(headerMass); //inputConvTo g
-            printf("\n");
-            breakline();
-            printf("\n %ft > %f cm\n", num, num * 1000000);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "t", "g", 'm', "mul", 1000000);
             break;
         default: error(inputConvTo);
             break;
@@ -315,26 +204,11 @@ void conv_mass(int inputConvFrom, int inputConvTo) //mass
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerMass); //inputConvTo t
-            printf("\n");
-            breakline();
-            printf("\n %f kg > %f t\n", num, num / 1000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "kg", "t", 'm', "div", 1000);
             break;
-        case 2: header(headerMass); //inputConvTo dag
-            printf("\n");
-            breakline();
-            printf("\n %f kg > %f dag\n", num, num * 100);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "kg", "dkg", 'm', "mul", 100);
             break;
-        case 3: header(headerMass); //inputConvTo g
-            printf("\n");
-            breakline();
-            printf("\n %f kg > %f g\n", num, num * 1000);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "kg", "g", 'm', "mul", 1000);
             break;
         default: error(inputConvTo);
             break;
@@ -345,26 +219,11 @@ void conv_mass(int inputConvFrom, int inputConvTo) //mass
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f dag > %f t\n", num, num / 100000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "dkg", "t", 'm', "div", 100000);
             break;
-        case 2: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f dag > %f kg\n", num, num / 100);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "dkg", "kg", 'm', "div", 100);
             break;
-        case 3: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f dag > %f g\n", num, num * 10);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "dkg", "g", 'm', "mul", 10);
             break;
         default: error(inputConvTo);
             break;
@@ -375,32 +234,16 @@ void conv_mass(int inputConvFrom, int inputConvTo) //mass
         num = conv_input();
         switch (inputConvTo)
         {
-        case 1: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f g > %f t\n", num, num / 1000000);
-            breakline();
-            printf("\n");
+        case 1: convCalc(num, "g", "t", 'm', "div", 1000000);
             break;
-        case 2: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f g > %f kg\n", num, num / 1000);
-            breakline();
-            printf("\n");
+        case 2: convCalc(num, "g", "kg", 'm', "div", 1000);
             break;
-        case 3: header(headerMass);
-            printf("\n");
-            breakline();
-            printf("\n %f g > %f dag\n", num, num / 10);
-            breakline();
-            printf("\n");
+        case 3: convCalc(num, "g", "dkg", 'm', "div", 10);
             break;
         default: error(inputConvTo);
             break;
         }
     }
 }
-
 
 #endif /* convert_h */

@@ -10,7 +10,7 @@
 
 const int ver_major = 0;
 const int ver_minor = 6;
-const char ver_build[] = "0205";
+const char ver_build[] = "0206";
 const char status[] = "beta";
 
 double PI = 3.1415;

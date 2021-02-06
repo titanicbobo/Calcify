@@ -54,7 +54,7 @@ char libPhyMom[] = "\n Momentum is the product of the mass and velocity of an ob
 char libPhyWor[] = "\n In physics, work is the energy transferred to or from an object via the application of force along a displacement.\n\n\n Definition: Work = Force * Displacement\n\n Formula: W = F * s\n\n Units: [J] = [N] * [m]";
 char libPhyKen[] = "\n In physics, the kinetic energy of an object is the energy that it possesses due to its motion.\n\n\n Definition: kinetic Energy = (Mass * Velocity^2) / 2\n\n Formula: E kin = (m * v^2) / 2\n\n Units: [J] = [kg] * [m/s]";
 char libPhyPen[] = "\n In physics, potential energy is the energy held by an object because of its position relative to other objects, stresses within itself, its electric charge, or other factors.\n\n\n Definition: potential Energy = Mass * Gravity * Height\n\n Formula: E pot = m * g * h\n\n Units: [J] = [kg] * 9,81 m/s^2 * [m]";
-char libPhyPre[] = "\n Pressure is the force applied perpendicular to the surface of an object per unit area over which that force is distributed\n\n\n Definition: Pressure = Force * Area\n\n Formula: P = F * A\n\n Units: [Pa] = [N] * [m^2]";
+char libPhyPre[] = "\n Pressure is the force applied perpendicular to the surface of an object per unit area over which that force is distributed.\n\n\n Definition: Pressure = Force * Area\n\n Formula: P = F * A\n\n Units: [Pa] = [N] * [m^2]";
 
 char textConvertLenFrom[] = "[1] km\n [2] m\n [3] dm\n [4] cm\n [5] mm";
 char textConvertLenFromKM[] = "[1] m\n [2] dm\n [3] cm\n [4] mm";
@@ -64,9 +64,9 @@ char textConvertLenFromCM[] = "[1] km\n [2] m\n [3] dm\n [4] mm";
 char textConvertLenFromMM[] = "[1] km\n [2] m\n [3] dm\n [4] cm";
 
 char textConvertMassFrom[] = "[1] t\n [2] kg\n [3] dag\n [4] g";
-char textConvertMassFromT[] = "[1] kg\n [2] dag\n [3] g";
-char textConvertMassFromKG[] = "[1] t\n [2] dag\n [3] g";
+char textConvertMassFromT[] = "[1] kg\n [2] dkg\n [3] g";
+char textConvertMassFromKG[] = "[1] t\n [2] dkg\n [3] g";
 char textConvertMassFromDKG[] = "[1] t\n [2] kg\n [3] g";
-char textConvertMassFromG[] = "[1] t\n [2] kg\n [3] dag";
+char textConvertMassFromG[] = "[1] t\n [2] kg\n [3] dkg";
 
 #endif // LANGUAGE_H_INCLUDED

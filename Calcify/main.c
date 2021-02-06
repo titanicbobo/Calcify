@@ -68,7 +68,7 @@ int main(int argc, char** argv)
             }
             break;
         
-    case 2: header(headerConv, inputCat, menuMain_conv); //convert
+    case 2: headerAdv(headerConv, inputCat, menuMain_conv); //convert
             
             cc = int_input();
             
@@ -148,87 +148,46 @@ int main(int argc, char** argv)
 
 void bsc(void)
 {
-    int opr=0;
-	char op[1024];
+    char opr = ' ';
 	char n1[1024];
 	char n2[1024];
-    float num=0;
-    float num1=0;
-    float num2=0;
+    double num=0;
+    double num1=0;
+    double num2=0;
     printf("\n %s \n", infoCalc);
     printf("\n > ");
 
 	fgetc(stdin);
-	do
-	{
-		if (!fgets(n1, 1024, stdin))
-		{
-			return 1;
-		}
-		num1 = atof(n1);
-	} while (num1 == 0);
+	fgets(n1, 1024, stdin);
+	num1 = atof(n1);
 
     printf("\n%s \n", menuCalcBasic);
     printf("\n > ");
 
-	fgetc(stdin);
-	do
-	{
-		if (!fgets(op, 1024, stdin))
-		{
-			return 1;
-		}
-		opr = atoi(op);
-	} while (opr == 0);
-	
-    
-	if(opr >= 1 && opr <= 4)
+	opr = getchar();
+
+	if(opr == '+' || opr == '-' || opr == '*' || opr == '/')
 	{
 
     printf("\n > ");
 
     fgetc(stdin);
-	do
-	{
-		if (!fgets(n2, 1024, stdin))
-		{
-			return 1;
-		}
-		num2 = atof(n2);
-	} while (num2 == 0);
+	fgets(n2, 1024, stdin);
+	num2 = atof(n2);
 
     switch (opr)
     {
-    case 1: num = num1 + num2;
-		printf("\n");
-		breakline();
-		printf("\n %.2f + %.2f = %.2f \n", num1, num2, num);
-		breakline();
-        break;
-    case 2: num = num1 - num2;
-		printf("\n");
-		breakline();
-		printf("\n %.2f - %.2f = %.2f \n", num1, num2, num);
-		breakline();
-        break;
-    case 3: num = num1 * num2;
-		printf("\n");
-		breakline();
-		printf("\n %.2f * %.2f = %.2f \n", num1, num2, num);
-		breakline();
-        break;
-    case 4: num = num1 / num2;
-		printf("\n");
-		breakline();
-		printf("\n %.2f / %.2f = %.2f \n", num1, num2, num);
-		breakline();
-        break;
-	default: error(opr);
-		break;
-    }
-    
-    
-
+		case '+': bscCalc(num1, num2, '+');
+			break;
+		case '-': bscCalc(num1, num2, '-');
+			break;
+		case '*': bscCalc(num1, num2, '*');
+			break;
+		case '/': bscCalc(num1, num2, '/');
+			break;
+		default: error(opr);
+			break;
+		}
     }
     else
     {
@@ -244,134 +203,83 @@ void sci(void)
     fflush(stdin);
 	*/
     char opr=' ';
-    float num=0;
-    float num1=0;
-    float num2=0;
-    int n;
+	char n1[1024];
+	char n2[1024];
+    double num=0;
+    double num1=0;
+    double num2=0;
     //float numt;
     //float num3;
     //float num4;
     //float num5;
     printf("\n %s \n", infoCalc);
     printf("\n > ");
-    scanf("%f", &num1);
-    fflush(stdin);
+
+	fgetc(stdin);
+	fgets(n1, 1024, stdin);
+	num1 = atof(n1);
 
     printf("\n%s \n", menuCalcScience);
     printf("\n > ");
-	scanf(" %c", &opr);
-    fflush(stdin);
+
+	opr = getchar();
     
     if (opr == '+' || opr == '-' || opr == '*' || opr == '/')
     {		
         printf("\n > ");
-        scanf("%f", &num2);
-        fflush(stdin);
+		fgetc(stdin);
+		fgets(n2, 1024, stdin);
+		num2 = atof(n2);
         
 		switch (opr)
 		{
-		case '+': num = num1 + num2;
+		case '+': bscCalc(num1, num2, '+');
 			break;
-		case '-': num = num1 - num2;
+		case '-': bscCalc(num1, num2, '-');
 			break;
-		case '*': num = num1 * num2;
+		case '*': bscCalc(num1, num2, '*');
 			break;
-		case '/': num = num1 / num2;
+		case '/': bscCalc(num1, num2, '/');
 			break;
 		default: error(opr);
 			break;
 		}
-			
-		printf("\n");
-        breakline();
-        printf("\n %f %c %f = %f \n", num1, opr, num2, num);
-        breakline();
-        printf("\n");
     }
-
     else if (opr == 'r' || opr == 'R')
     {
-        printf("\n");
-        breakline();
-        printf("%s %f = %f \n", inputSqr, num1, sqrt(num1));
-        breakline();
-        printf("\n");
+		bscCalc(num1, 0, 'r');
     }
-    
     else if (opr == '2')
     {
-        printf("\n");
-        breakline();
-        printf("\n %f ^ 2 = %f \n", num1, pow(num1, 2));
-        breakline();
-        printf("\n");
+		bscCalc(num1, 0, '2');
     }
-    
     else if (opr == 'n' || opr == 'N')
     {
-        printf("\n > ");
-        n = getchar();
-        fflush(stdin);
-
-        printf("\n");
-        breakline();
-        printf("\n %f ^ %i = %f \n", num1, n, pow(num1, n));
-        breakline();
-        printf("\n");
+		bscCalc(num1, 0, 'n');
     }
-    
     else if(opr=='s')
     {
-        printf("\n");
-        breakline();
-        printf("\n sin(%f) = %f \n", num1, sin(num1*PI/180));
-        breakline();
-        printf("\n");
+		bscCalc(num1, 0, 's');
     }
-    
     else if(opr=='c')
     {
-		printf("\n");
-		breakline();
-		printf("\n cos(%f) = %f \n", num1, cos(num1*PI/180));
-		breakline();
-		printf("\n");
+		bscCalc(num1, 0, 'c');
 	}
-	
 	else if(opr=='t')
 	{
-		printf("\n");
-		breakline();
-		printf("\n tan(%f) = %f \n", num1, tan(num1*PI/180));
-		breakline();
-		printf("\n");
+		bscCalc(num1, 0, 't');
 	}
-	
 	else if(opr=='S')
     {
-        printf("\n");
-        breakline();
-        printf("\n arcsin(%f) = %f° \n", num1, asin(num1)*180/PI);
-        breakline();
-        printf("\n");
+		bscCalc(num1, 0, 'S');
     }
-    
     else if(opr=='C')
     {
-		printf("\n");
-		breakline();
-		printf("\n arcos(%f) = %f° \n", num1, acos(num1)*180/PI);
-		breakline();
-		printf("\n");
+		bscCalc(num1, 0, 'C');
 	}
-	
 	else if(opr=='T')
 	{
-		printf("\n");
-		breakline();
-		printf("\n arctan(%f) = %f° \n", num1, atan(num1)*180/PI);
-		breakline();
-		printf("\n");
+		bscCalc(num1, 0, 'T');
 	}
 	else
 	{
