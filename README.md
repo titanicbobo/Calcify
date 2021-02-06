@@ -3,6 +3,16 @@ A nice little compact text based calculator
 
 Latest changes:
 
+2021-02-05 (v0.6.0205):
+- started replacing scanf functions with fgets
+- added core function "calcUnit". it replaces the old comands consisting of a lot of printf functions. it can be modified very easily
+- added "headerAdv" function which extends the abilities of the "header" function. it makes some printf lines be unnecesarry.
+- moved some strings from the convert header to the language header
+- replaced old library commands with the "libList" function. it also saves some lines
+- Hungarian translation is still incomplete
+- basic calculation mode doesn't work properly
+- removed some electrical and physics formulas
+
 2021-02-04 (v0.6.0204):
 - Translated program from C++ to C
 - Removed the complex number functionality inlcuding complex.h
