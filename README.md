@@ -17,7 +17,7 @@ Latest changes:
 - Translated program from C++ to C
 - Removed the complex number functionality inlcuding complex.h
 - Removed stat.h
-- Changed develper company to from K.Tech to Sevem Studios
+- Changed develper company to from K.Tech to Seven Studios
 - Changed most floats to double
 - Added "cls" to header function
 - Changed formatting of main.c, language_en.h and language_hu.h to ISO 8859-2
