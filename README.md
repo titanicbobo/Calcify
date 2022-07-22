@@ -3,6 +3,13 @@ A nice little compact text based calculator
 
 Latest changes:
 
+2022-07-22 (v0.6.220722)
+- Python migration started
+- All features except the conversion tool have been ported
+- Ported stripped down version of complex calculation tool
+- Updated language support
+- Translation completed in English and Hungarian
+
 2021-02-05 (v0.6.0205):
 - started replacing scanf functions with fgets
 - added core function "calcUnit". it replaces the old comands consisting of a lot of printf functions. it can be modified very easily
